@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/purchase', 'Purchase\PurchaseController@__toString');
+Route::get('/purchase', 'Purchase\PurchaseController@index');
 
 Route::get('/dice', 'Dice\DiceController@rollDouble');
