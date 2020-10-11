@@ -10,7 +10,7 @@ class PurchaseController // extends Controller
 {
     private int $apple_price = 100;
     private int $banana_price = 200;
-    private int $quantity = 4;
+    private int $quantity = 30;
     private string $result;
 
     public function __construct() {

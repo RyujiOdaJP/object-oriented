@@ -20,11 +20,12 @@ class ShippingController extends Controller
     public function getTotalAmount (): int {
         $shipping_fee = 500;
         $border_price = 3000;
+        $purchased_price = $this->item_price * $this->quantity;
 
-        if ($this->item_price < $border_price){
-            return $this->item_price + $shipping_fee;
+        if ($purchased_price < $border_price){
+            return $purchased_price + $shipping_fee;
         } else {
-            return $this->item_price;
+            return $purchased_price;
         }
     }
 }
