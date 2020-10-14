@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Purchase;
 
-use App\Http\Controllers\Purchase\Quantity;
-
 
 class ShippingCost
 {
