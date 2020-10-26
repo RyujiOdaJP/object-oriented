@@ -13,23 +13,17 @@ class UserCategories
     }
 
     public function isAdult() : bool {
-        if ($this->user_category === 'adult') {
-            return true;
-        }
+        if ($this->user_category === 'adult') return true;
         return false;
     }
 
     public function isSenior() : bool {
-        if ($this->user_category === 'senior') {
-            return true;
-        }
+        if ($this->user_category === 'senior') return true;
         return false;
     }
 
     public function isChild() : bool {
-        if ($this->user_category === 'child') {
-            return true;
-        }
+        if ($this->user_category === 'child') return true;
         return false;
     }
 }

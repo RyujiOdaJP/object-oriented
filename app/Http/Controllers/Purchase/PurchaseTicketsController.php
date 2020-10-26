@@ -14,17 +14,9 @@ class PurchaseTicketsController extends Controller
         $user_category = new UserCategories($this->user_category);
         $ticket_fee = new FeeCategories($this->ticket_fee);
 
-        if ($user_category->isAdult()) {
-            return $ticket_fee->getAdultFee();
-        }
-
-        if ($user_category->isSenior()) {
-            return $ticket_fee->getSeniorFee();
-        }
-
-        if ($user_category->isChild()) {
-            return $ticket_fee->getChildFee();
-        }
+        if ($user_category->isAdult()) return $ticket_fee->getAdultFee();
+        if ($user_category->isSenior()) return $ticket_fee->getSeniorFee();
+        if ($user_category->isChild()) return $ticket_fee->getChildFee();
         return null;
     }
 }
