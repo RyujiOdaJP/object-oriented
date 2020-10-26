@@ -20,12 +20,8 @@ class SampleController extends Controller
      */
     public function judgeInput():string
     {
-        if (is_string($this->value)) {
-            return  $this->value . 'is string.';
-        } else if (is_int($this->value)) {
-            return $this->value . 'is integer.';
-        } else {
-            return $this->value . 'is neither string nor integer.';
-        }
+        if (is_string($this->value)) return  $this->value . 'is string.';
+        if (is_int($this->value)) return $this->value . 'is integer.';
+        return $this->value . 'is neither string nor integer.';
     }
 }
