@@ -3,8 +3,9 @@
 
 namespace App\Http\Controllers\Purchase;
 
+use FeeInterface;
 
-class FeeCategories
+class FeeCategories implements FeeInterface
 {
     private int $price;
 //    private Quantity $quantity;
