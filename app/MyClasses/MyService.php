@@ -12,11 +12,16 @@ class MyService
         'Bye'
     ];
 
-    public function __construct(int $id = -1)
+    public function __construct()
     {
-        if ($id >= 0) {
-            $this->id = $id;
-            $this->msg = 'select: ' . $this->data[$id];
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+        if ($id >= 0 && $id < count($this->data)) {
+            $this->msg = 'select id:" ' . $id
+            . ', data: ' . $this->data[$id] . '"';
         }
     }
 

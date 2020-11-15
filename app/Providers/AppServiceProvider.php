@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\MyClasses\MyService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(MyService::class,
+        function ($app) {
+            $my_service = new MyService();
+            $my_service->setId(0);
+            return $my_service;
+        });
     }
 }

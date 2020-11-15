@@ -9,11 +9,12 @@ use App\MyClasses\MyService;
 
 class HelloController extends Controller
 {
-    public function index (int $id = -1)
+    public function index (MyService $my_service, int $id = -1)
     {
         MyJob::dispatch();
 
-        $my_service = app()->makeWith(MyService::class, ['id' => $id]);
+//        $my_service = app()->makeWith(MyService::class, ['id' => $id]);
+        $my_service->setId($id);
         $data = [
             'msg' => 'show people recode',
             'myServiceMsg' => $my_service->say(),
