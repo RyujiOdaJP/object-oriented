@@ -7,9 +7,16 @@
         <h1>
             Hello/Index
         </h1>
-        <p>
+        <pre>
+
             {{ $data['msg'] }}
-        </p>
+            {{ $data['myServiceMsg'] }}
+            @foreach( $data['myServiceData'] as $item )
+                <li>{{ $item }}</li>
+            @endforeach
+
+        </pre>
+
     </body>
 
 </html>
