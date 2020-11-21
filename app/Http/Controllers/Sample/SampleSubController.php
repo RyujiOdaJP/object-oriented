@@ -12,7 +12,7 @@ class SampleSubController extends SampleController
         $border_price = 3000;
         $purchased_price = 0;
 
-        for($i=0, $i < count($this->quantities), $i++;) {
+        for($i=0; $i < count($this->quantities); $i++) {
             $purchased_price += $this->item_price[$i] * $this->quantities[$i];
         }
 
