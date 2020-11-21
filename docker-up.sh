@@ -16,7 +16,8 @@
 # 見えタロー接続(本番のみ、取扱注意)   : mysql-mietaro
 # develop環境redis(ローカルではない) : redis-dev
 
-pushd ./laradock
+#pushd ./laradock
+pushd ./docker
 
 ms='mysql'
 ro='read'
@@ -37,7 +38,8 @@ do
 #            ;;
         'l')
             env='local'
-            slot='redis mysql'
+#            slot='redis mysql'
+            slot='db db-testing'
             ;;
 #        *)
 #            env='dev'
@@ -46,7 +48,7 @@ do
     esac
 done
 
-fixed_container="nginx"
+fixed_container="web"
 
 echo "Raunching container for ${env}..."
 eval "docker-compose up -d ${build} ${fixed_container} ${slot}"
