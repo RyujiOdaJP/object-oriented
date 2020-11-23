@@ -16,17 +16,15 @@ class VacancyLevel extends Model
         $this->remainingCount = $remainingCount;
     }
 
-    public function mark (): string
+    public function mark(): string
     {
-        if ($this->remainingCount === 0){
+        if ($this->remainingCount === 0) {
             return '×';
         }
-        if ($this->remainingCount === 4){
+        if ($this->remainingCount < 5) {
             return '△';
         }
-        if ($this->remainingCount === 5){
-            return '○';
-        }
+        return '○';
     }
 
 }

@@ -17,15 +17,33 @@ class VacancyLevelTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testMark()
+    /**
+     * @dataProvider dataMark //テストパターンを配列で定義し、テストメソッドに順に渡してテストを行うことができます
+     * @param string $expectedMark
+     * @param int $remainingCount
+     */
+    public function testMark(string $expectedMark, int $remainingCount)
     {
-        $level = new VacancyLevel(0);
-        $this->assertSame('×', $level->mark());
+        $level = new VacancyLevel($remainingCount);
+        $this->assertSame($expectedMark, $level->mark());
 
-        $level = new VacancyLevel(4);
-        $this->assertSame('△', $level->mark());
+    }
 
-        $level = new VacancyLevel(5);
-        $this->assertSame('○', $level->mark());
+    public function dataMark(): array
+    {
+        return [
+            '空きなし' => [
+                'expectedMark' => '×',
+                'remainingCount' => 0
+            ],
+            '残りわずか' => [
+                'expectedMark' => '△',
+                'remainingCount' => 4
+            ],
+            '空き十分' => [
+                'expectedMark' => '○',
+                'remainingCount' => 5
+            ]
+        ];
     }
 }
