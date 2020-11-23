@@ -24,12 +24,12 @@ Route::get('/purchase', 'Purchase\PurchaseController@index');
 
 Route::get('/dice', 'Dice\DiceController@rollDouble');
 
-Route::get('/calc', function (){
-
-    echo (new Collection(range(0, 100)))
-        ->filter(function($v){ return $v % 2 === 0; })
-        ->map(function($v){ return $v ** 2; })
-        ->filter(function($v){ return $v > 20; })
-        ->sum()
-    ;
-});
+//Route::get('/calc', function (){
+//
+//    echo (new Collection(range(0, 100)))
+//        ->filter(function($v){ return $v % 2 === 0; })
+//        ->map(function($v){ return $v ** 2; })
+//        ->filter(function($v){ return $v > 20; })
+//        ->sum()
+//    ;
+//});

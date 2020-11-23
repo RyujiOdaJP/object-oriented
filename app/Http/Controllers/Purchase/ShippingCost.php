@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Purchase;
 
 class ShippingCost
 {
-    private int $item_price;
-    private Quantity $quantity;
+    private $item_price;
+    private $quantity;
 
     public function __construct(int $item_price, Quantity $quantity)
     {

@@ -7,10 +7,10 @@ use FeeInterface;
 
 class FeeCategories implements FeeInterface
 {
-    private int $price;
+    private $price;
 //    private Quantity $quantity;
-    private float $senior_rate = 0.8;
-    private float $child_rate = 0.5;
+    private  $senior_rate = 0.8;
+    private  $child_rate = 0.5;
 
     public function __construct(int $price, Quantity $quantity = null) {
         $this->price = $price;

@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
 {
-    private int $apple_price = 100;
-    private int $input_quantity = 29;
-    private string $result;
+    private $apple_price = 100;
+    private $input_quantity = 29;
+    private $result;
 
     public function index() {
         try {

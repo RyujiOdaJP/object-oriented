@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class PurchaseTicketsController extends Controller
 {
-    private int $ticket_fee = 3000;
-    private string $user_category = 'adult';
+    private $ticket_fee = 3000;
+    private $user_category = 'adult';
 
     public function index () : ?string {
         $user_category = new UserCategories($this->user_category);

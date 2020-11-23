@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Purchase;
 
 class UserCategories
 {
-    private string $user_category;
+    private $user_category;
 
     public function __construct($user_category) {
         $this->user_category = $user_category;
