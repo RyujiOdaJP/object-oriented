@@ -24,6 +24,8 @@ Route::get('/purchase', 'Purchase\PurchaseController@index');
 
 Route::get('/dice', 'Dice\DiceController@rollDouble');
 
+Route::get('/lesson/1', 'Dice\DiceController@rollDouble');
+
 //Route::get('/calc', function (){
 //
 //    echo (new Collection(range(0, 100)))
