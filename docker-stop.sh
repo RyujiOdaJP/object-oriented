@@ -1,5 +1,5 @@
 #!/bin/bash
-pushd ./laradock/
+pushd ./docker
 docker-compose stop
 popd
 

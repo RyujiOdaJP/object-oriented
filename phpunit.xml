@@ -4,6 +4,11 @@
          bootstrap="vendor/autoload.php"
          colors="true"
 >
+    <!--    「テストスイート」というテストをグルーピングするためのリストです。-->
+    <!--    それぞれの testsuite タグにある name 属性に書かれた文字列がテストスイート名で、これを実行時に下記のように指定すると、-->
+    <!--    それぞれ directory タグで指定した条件に一致するテストのみを実行するようにできます。-->
+    <!--    # php artisan test &#45;&#45;testsuite=Unit-->
+
     <testsuites>
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
@@ -12,6 +17,11 @@
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
     </testsuites>
+    <!--    filter - whitelist-->
+    <!--    カバレッジ計測の対象を directory タグで指定したディレクトリのみに限定します。-->
+
+    <!--    php - server-->
+    <!--    実行時に PHP の特殊変数 $_SERVER にキーと値のペアを登録します。-->
     <coverage processUncoveredFiles="true">
         <include>
             <directory suffix=".php">./app</directory>
@@ -27,6 +37,6 @@
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
-<!--        <env name="DB_TEST_DATABASE" value="testing" />-->
+        <!--        <env name="DB_TEST_DATABASE" value="testing" />-->
     </php>
 </phpunit>
