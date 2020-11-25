@@ -6,9 +6,12 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
 use Tests\TestCase;
+use App\Models\Lesson as Lesson;
 
 class LessonControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * A basic feature test example.
      *
@@ -20,13 +23,16 @@ class LessonControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
-
-    public function testShow ()
+    /**
+     * @note レッスンが予約可能最大数と現在の予約数を保持しており、その差が空き状況レベルの初期値となる感じです。
+     *
+     */
+    public function testShow()
     {
-        $response = $this->get('/lesson/1');
-
+        $lesson = Lesson::factory()->create(['name' => '楽しいヨガレッスン']);
+        $response = $this->get("/lessons/{$lesson->id}");
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertSee('楽しいヨガレッスン');
-        $response->assertSee('×');
+        $response->assertSee($lesson->name);
+        $response->assertSee('空き状況: ×');
     }
 }

@@ -21,8 +21,13 @@ class LessonFactory extends Factory
      */
     public function definition()
     {
+        $faker = $this->faker;
         return [
-            //
+            'name' => $faker->name,
+            'coach_name' => $faker->name,
+            'capacity' => $faker->randomNumber(2),
+            'start_at' => $faker->dateTime,
+            'end_at' => $faker->dateTime
         ];
     }
 }
