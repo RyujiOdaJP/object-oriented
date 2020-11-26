@@ -16,6 +16,7 @@ class LessonControllerTest extends TestCase
      * A basic feature test example.
      *
      * @return void
+     * @dataProvider remainingCount
      */
     public function testExample()
     {
@@ -34,5 +35,10 @@ class LessonControllerTest extends TestCase
         $response->assertStatus(Response::HTTP_OK);
         $response->assertSee($lesson->name);
         $response->assertSee('空き状況: ×');
+    }
+
+    public function remainingCount ()
+    {
+
     }
 }

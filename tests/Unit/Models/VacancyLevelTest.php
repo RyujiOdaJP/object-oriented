@@ -18,7 +18,8 @@ class VacancyLevelTest extends TestCase
     }
 
     /**
-     * @dataProvider dataMark //テストパターンを配列で定義し、テストメソッドに順に渡してテストを行うことができます
+     * @dataProvider dataMark
+     * @note dataProviderはテストパターンを配列で定義し、テストメソッドに順に渡してテストを行うことができます
      * @param string $expectedMark
      * @param int $remainingCount
      */
