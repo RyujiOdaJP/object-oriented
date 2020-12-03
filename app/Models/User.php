@@ -41,6 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * @var mixed|string
+     */
 
     public function lessons (): BelongsToMany
     {
