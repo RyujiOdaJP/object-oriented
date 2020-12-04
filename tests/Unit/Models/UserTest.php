@@ -27,9 +27,9 @@ class UserTest extends TestCase
     public function testCanReserve(string $plan, int $remainingCount, int $reservationCount = null, bool $canReserve)
     {
         $user = new User();
-        
+
         $user->plan = $plan;
-        assertSame($canReserve, $user->canReserve($remainingCount, $reservationCount));
+         self::assertSame($canReserve, $user->canReserve($remainingCount, $reservationCount));
     }
 
     public function canReserveData()
@@ -50,16 +50,19 @@ class UserTest extends TestCase
             '予約不可：レギュラー、空きなし' => [
                 'plan' => 'regular',
                 'remainingCount' => 0,
+                'reservationCount' => null,
                 'canReserve' => false,
             ],
             '予約可能：ゴールド、空きあり' => [
                 'plan' => 'gold',
                 'remainingCount' => 1,
+                'reservationCount' => null,
                 'canReserve' => true,
             ],
             '予約不可：ゴールド、空きなし' => [
                 'plan' => 'gold',
                 'remainingCount' => 0,
+                'reservationCount' => null,
                 'canReserve' => false,
             ],
         ];

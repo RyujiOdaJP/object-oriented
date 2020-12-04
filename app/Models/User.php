@@ -41,12 +41,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    const RESERVABLE_COUNT = 5;
+
     /**
+     * @return BelongsToMany
      * @var mixed|string
      */
-
-    public function lessons (): BelongsToMany
+    public function lessons(): BelongsToMany
     {
         return $this->belongsToMany(Lesson::class, 'reservations');
+    }
+
+    /**
+     * @param int $remainingCount
+     * @param int|null $reservationCount
+     * @return bool
+     */
+    public function canReserve(int $remainingCount, int $reservationCount = null): bool
+    {
+        $plan = $this->plan;
+
+        //レッスン空きなし regular,gold共に不可
+        if ($remainingCount === 0) {
+            return false;
+        }
+        //gold レッスン空きあり
+        if ($plan === 'gold') {
+            return true;
+        }
+        //regular 残機ありORなし
+            return $reservationCount < self::RESERVABLE_COUNT;
     }
 }
