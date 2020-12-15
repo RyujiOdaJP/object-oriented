@@ -11,13 +11,16 @@ class Quantity
 
     private $value;
 
-    public function __construct(int $value) {
-        if($value < self::$min || $value > self::$max) {
+    public function __construct(int $value)
+    {
+        if ($value < self::$min || $value > self::$max) {
             throw new \Exception('Quantity must be at least 1 and maximum 100.');
         }
         $this->value = $value;
     }
-    public function getQuantity(){
+
+    public function getQuantity()
+    {
         return $this->value;
     }
 }

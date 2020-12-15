@@ -27,7 +27,7 @@ class UserTest extends TestCase
     public function testCanReserve(string $plan, int $remainingCount, int $reservationCount = null, bool $canReserve)
     {
         $user = new User();
-        
+        Q
         $user->plan = $plan;
         assertSame($canReserve, $user->canReserve($remainingCount, $reservationCount));
     }
