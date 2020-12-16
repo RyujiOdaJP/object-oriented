@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Models;
 
+use App\Models\Lesson;
 use App\Models\User;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertTrue;
@@ -27,9 +28,10 @@ class UserTest extends TestCase
     public function testCanReserve(string $plan, int $remainingCount, int $reservationCount = null, bool $canReserve)
     {
         $user = new User();
+        $lesson = new Lesson();
 
         $user->plan = $plan;
-         self::assertSame($canReserve, $user->canReserve($remainingCount, $reservationCount));
+        self::assertSame($canReserve, $user->canReserve($lesson->remainingCount(), $reservationCount));
     }
 
     public function canReserveData()

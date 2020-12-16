@@ -71,6 +71,6 @@ class User extends Authenticatable
             return true;
         }
         //regular 残機ありORなし
-            return $reservationCount < self::RESERVABLE_COUNT;
+        return $reservationCount < self::RESERVABLE_COUNT;
     }
 }
