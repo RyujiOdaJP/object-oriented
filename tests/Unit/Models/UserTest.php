@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Models;
 
+use App\Models\Lesson;
 use App\Models\User;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertTrue;
@@ -27,7 +28,8 @@ class UserTest extends TestCase
     public function testCanReserve(string $plan, int $remainingCount, int $reservationCount = null, bool $canReserve)
     {
         $user = new User();
-        Q
+        $lesson = new Lesson();
+
         $user->plan = $plan;
         assertSame($canReserve, $user->canReserve($remainingCount, $reservationCount));
     }
@@ -50,16 +52,19 @@ class UserTest extends TestCase
             '予約不可：レギュラー、空きなし' => [
                 'plan' => 'regular',
                 'remainingCount' => 0,
+                'reservationCount' => null,
                 'canReserve' => false,
             ],
             '予約可能：ゴールド、空きあり' => [
                 'plan' => 'gold',
                 'remainingCount' => 1,
+                'reservationCount' => null,
                 'canReserve' => true,
             ],
             '予約不可：ゴールド、空きなし' => [
                 'plan' => 'gold',
                 'remainingCount' => 0,
+                'reservationCount' => null,
                 'canReserve' => false,
             ],
         ];
